@@ -1,4 +1,5 @@
 uniform float uPixelRatio;
+uniform float uSize;
 
 void main() {
     vec4 modelPosition = modelMatrix * vec4(position, 1.0);
@@ -7,6 +8,6 @@ void main() {
 
     gl_Position = projectionPosition;
     
-    gl_PointSize = 40.0 * uPixelRatio; // this fixes the different devices' pixel density so 40 px is going to be 40 for all of the resolutions
+    gl_PointSize = uSize * uPixelRatio; // this fixes the different devices' pixel density so 40 px is going to be 40 for all of the resolutions
     gl_PointSize *= (1.0 / - viewPosition.z); // particles now resize accordingly to camera distance
 }
