@@ -101,6 +101,9 @@ firefliesGeometry.setAttribute(
 
 // Material
 const firefliesMaterial = new THREE.ShaderMaterial({
+    uniforms: {
+        uPixelRatio: { value: Math.min(window.devicePixelRatio, 2) },
+    },
     vertexShader: firefliesVertexShader,
     fragmentShader: firefliesFragmentShader,
 });
