@@ -88,9 +88,9 @@ const firefliesCount = 30;
 const positionArray = new Float32Array(firefliesCount * 3); // 3 for all the particles x y and z
 
 for (let i = 0; i < firefliesCount; i++) {
-    positionArray[i * 3 + 0] = Math.random() * 4; // x
-    positionArray[i * 3 + 1] = Math.random() * 4; // y
-    positionArray[i * 3 + 2] = Math.random() * 4; // z
+    positionArray[i * 3 + 0] = (Math.random() - 0.5) * 4; // x
+    positionArray[i * 3 + 1] = Math.random() * 1.5; // y
+    positionArray[i * 3 + 2] = (Math.random() - 0.5) * 4; // z
 }
 firefliesGeometry.setAttribute(
     "position",
