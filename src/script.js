@@ -86,14 +86,14 @@ gltfLoader.load("portal.glb", (gltf) => {
  */
 // Geometry
 const firefliesGeometry = new THREE.BufferGeometry();
-const firefliesCount = 30;
+const firefliesCount = 50;
 const positionArray = new Float32Array(firefliesCount * 3); // 3 for all the particles x y and z
 const scaleArray = new Float32Array(firefliesCount);
 
 for (let i = 0; i < firefliesCount; i++) {
     positionArray[i * 3 + 0] = (Math.random() - 0.5) * 4; // x
-    positionArray[i * 3 + 1] = Math.random() * 1.5; // y
-    positionArray[i * 3 + 2] = (Math.random() - 0.5) * 4; // z
+    positionArray[i * 3 + 1] = Math.random() * 2.5; // y
+    positionArray[i * 3 + 2] = (Math.random() - 0.6) * 4; // z
 
     scaleArray[i] = Math.random();
 }
