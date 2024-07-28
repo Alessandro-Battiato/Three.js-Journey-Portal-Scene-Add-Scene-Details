@@ -6,7 +6,7 @@ attribute float aScale;
 
 void main() {
     vec4 modelPosition = modelMatrix * vec4(position, 1.0);
-    modelPosition.y += sin(uTime);
+    modelPosition.y += sin(uTime + modelPosition.x * 100.0) * aScale * 0.2; // the 100.0 is necessary as to add even more randomness
 
     vec4 viewPosition = viewMatrix * modelPosition;
     vec4 projectionPosition = projectionMatrix * viewPosition;
