@@ -116,6 +116,7 @@ const firefliesMaterial = new THREE.ShaderMaterial({
     fragmentShader: firefliesFragmentShader,
     transparent: true, // this makes the material transparent and thus shows the pattern we are drawing in the fragment.glsl
     blending: THREE.AdditiveBlending, // not that good for performances
+    depthWrite: false,
 });
 
 gui.add(firefliesMaterial.uniforms.uSize, "value")
