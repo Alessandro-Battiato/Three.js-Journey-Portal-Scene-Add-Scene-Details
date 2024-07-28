@@ -95,6 +95,9 @@ void main() {
     // Apply step to make the portal effect "sharper" instead of having "waves" to be more in touch with the scene
     strength += step(- 0.2, strength) * 0.8;
 
+    // Clamp the value from 0 to 1 to avoid certain color patterns issue which would result in wrong colors showing
+    strength = clamp(strength, 0.0, 1.0);
+
     // Final color
     vec3 color = mix(uColorStart, uColorEnd, strength);
 
