@@ -80,6 +80,34 @@ gltfLoader.load("portal.glb", (gltf) => {
 });
 
 /**
+ * Fireflies
+ */
+// Geometry
+const firefliesGeometry = new THREE.BufferGeometry();
+const firefliesCount = 30;
+const positionArray = new Float32Array(firefliesCount * 3); // 3 for all the particles x y and z
+
+for (let i = 0; i < firefliesCount; i++) {
+    positionArray[i * 3 + 0] = Math.random() * 4; // x
+    positionArray[i * 3 + 1] = Math.random() * 4; // y
+    positionArray[i * 3 + 2] = Math.random() * 4; // z
+}
+firefliesGeometry.setAttribute(
+    "position",
+    new THREE.BufferAttribute(positionArray, 3)
+); // the attribute name must be position because Three.js expects it and the 3 is needed to specify that the particles should be handled accordingly to their x y z so 3 array values are 1 particle
+
+// Material
+const firefliesMaterial = new THREE.PointsMaterial({
+    size: 0.1,
+    sizeAttenuation: true,
+});
+
+// Points
+const fireflies = new THREE.Points(firefliesGeometry, firefliesMaterial);
+scene.add(fireflies);
+
+/**
  * Sizes
  */
 const sizes = {
