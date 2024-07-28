@@ -1,4 +1,6 @@
 uniform float uTime;
+uniform vec3 uColorStart;
+uniform vec3 uColorEnd;
 
 varying vec2 vUv;
 
@@ -93,7 +95,10 @@ void main() {
     // Apply step to make the portal effect "sharper" instead of having "waves" to be more in touch with the scene
     strength += step(- 0.2, strength) * 0.8;
 
-    gl_FragColor = vec4(strength, strength, strength, 1.0);
+    // Final color
+    vec3 color = mix(uColorStart, uColorEnd, strength);
+
+    gl_FragColor = vec4(color, 1.0); // you could change the alpha to "see" through the portal
 
     #include <colorspace_fragment>
 }
